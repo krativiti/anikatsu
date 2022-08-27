@@ -2,9 +2,9 @@
     "name": "AniKatsu",
     "description": "A free anime streaming website",
     "keywords": ["anikatsu", "gogoanime", "scrapper", "api", "streaming"],
-    "website": "https://github.com/shashankktiwariii/anikatsu#readme",
+    "website": "https://anikatsu.ga",
     "repository": "https://github.com/shashankktiwariii/anikatsu",
-    "logo": "https://anikatsu.ga/favicon.ico",
+    "logo": "https://anikatsu.ga/files/images/gitLogo.jpg",
 
     "image": "heroku/php",
     "stack": "heroku-22"
