@@ -29,8 +29,8 @@ $json = json_decode($json, true);
                     autostart: false,  
     image: "",
 
-    abouttext: "AniKatsu",
-    aboutlink: "https://anikatsu.ga/"             
+    abouttext: "<?=$webName?>",
+    aboutlink: "<?=$webUrl?>"             
     });
 
   playerInstance.addButton(
