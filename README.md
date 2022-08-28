@@ -36,7 +36,7 @@
 ## Requirements
 --> Php environment (use .htaccess must be enabled in localhost) or Directly Upload the code on php supported hosting (No editing Required Just Upload and Enjoy)
 <br>
---> *To Update Website Info (Such as Name, Logo, Favicon, Socials) Edit php/info.php file*
+--> **To Update Website Info (Such as Name, Logo, Favicon, Socials) Edit php/info.php file**
 
 ## Online Deployment
 
