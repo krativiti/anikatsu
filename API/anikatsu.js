@@ -5,7 +5,6 @@ const ajax_url = 'https://ajax.gogo-load.com/';
 const { generateEncryptAjaxParameters, decryptEncryptAjaxResponse } = require('./goload.js');
 
 const GOGOANIMETV = 'https://gogoanimetv.ga'
-const aniKatsu = 'https://anikatsu.ga'
 const USER_AGENT = require('./utils.js');
 const BASE_URL = 'https://gogoanime.ee';
 const BASE_URL2 = 'https://gogoanime.gg/';
@@ -55,8 +54,9 @@ async function vidcdn(id) {
         if (!res.source) return { error: 'No sources found!! Try different source.' };
 
         res.source.forEach((source) => sources.push(source));
+        res.source_bk.forEach((source) => sources_bk.push(source));
 
-        return (sources);
+        return (sources_bk);
     } catch (err) {
         console.log(err);
         return { error: err };
@@ -102,7 +102,6 @@ async function anime(_anime_name) {
         });
 
         anime_result = {
-            'animeUrl': aniKatsu + "/anime/" + _anime_name,
             'name': anime_name.toString(),
             'type': type.toString(),
             'synopsis': synopsis.toString(),
@@ -143,8 +142,6 @@ async function watchAnime(episode_id) {
 
 
         result = {
-            'animeUrl': aniKatsu + "/watch/" + episode_id,
-            'noAds': aniKatsu + "/player/v1.php?id=" + episode_id + "&download=" + download,
             'video': episode_link,
             'gogoserver': gogoserver,
             'streamsb': streamsb,
@@ -179,7 +176,6 @@ async function newReleases(page, type) {
 
         $('div.last_episodes.loaddub > ul > li').each((i, el) => {
             list.push({
-                
                 animeId: $(el).find('p.name > a').attr('href').split('/')[1].split('-episode-')[0],
                 episodeId: $(el).find('p.name > a').attr('href').split('/')[1],
                 name: $(el).find('p.name > a').attr('title'),

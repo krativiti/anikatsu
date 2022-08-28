@@ -1,4 +1,4 @@
-const scapper = require('./api.js')
+const scapper = require('./anikatsu.js')
 const express = require('express')
 const { env } = require('process')
 const cors = require('cors')
@@ -7,7 +7,7 @@ const app = express()
 app.use(cors())
 
 app.get('/', (req, res) => {
-    res.send('API used in AniKatsu')
+    res.send('API Currently Used By <a href="https://anikatsu.ga">AniKatsu</a>')
 })
 
 app.get('/getPopular/:page', async (req, res) => {
