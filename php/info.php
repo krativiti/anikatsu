@@ -2,7 +2,9 @@
 // Website Name
 $webName = "AniKatsu";
 // Website URL
-$webUrl = "//{$_SERVER['SERVER_NAME']}:8888";
+$webUrl = "//{$_SERVER['SERVER_NAME']}";
+// Logo
+$webLogo = $webUrl ."/files/images/logo.png";
 
 // Socials 
 // 1 . Donate 
@@ -13,6 +15,8 @@ $telegram = "https://t.me/Anikatsu";
 $discord = "#";
 // 4 Redit
 $redit = "#";
+// Twitter
+$twitter = "#";
 
 
 

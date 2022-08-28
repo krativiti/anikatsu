@@ -128,9 +128,9 @@
 <div id="header" class="header-home ">
     <div class="container">
         <div id="mobile_menu"><i class="fa fa-bars"></i></div>
-        <a href="/" id="logo" title="AniKatsu">
-            <img src="/files/images/logo.png" width="100%" height="auto"
-                alt="AniKatsu">
+        <a href="/" id="logo" title="<?=$webName?>">
+            <img src="<?=$webLogo?>" width="100%" height="auto"
+                alt="<?=$webName?>">
             <div class="clearfix"></div>
         </a>
         <div id="search">
@@ -145,7 +145,7 @@
         </div>
         <div class="header-group">
             <div class="zoro-group">
-                <div class="zrg-title"><span class="top">Join now</span><span class="bottom">AniKatsu Groups</span></div>
+                <div class="zrg-title"><span class="top">Join now</span><span class="bottom"><?=$webName?> Groups</span></div>
                 <div class="zrg-list">
                     <div class="item"><a target="_blank" href="<?=$donate?>" class="zr-social-button tl-btn"><i
                                 class="fas fa-donate"></i></a></div>
@@ -175,7 +175,7 @@
                 </a>
                 <div class="hst-item twitter_bt" data-toggle="tooltip" title=""
                     data-original-title="Follow us on Twitter">
-                    <a href="#" target="_blank">
+                    <a href="<?=$twitter?>" target="_blank">
                         <i class="fab fa-twitter"></i>
                         <div class="name" id="tora_d"><span>Follow</span></div>
                     </a>
