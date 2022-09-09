@@ -34,6 +34,8 @@
 ./API Folder is Modified Version of [riimuru/gogoanime-api](https://github.com/riimuru/gogoanime-api) according to the need of the website. 
 
 ## Requirements
+--> Getting 404?? Make Sure you pasted .htaccess file in your root dir
+<br>
 --> Php environment (use .htaccess must be enabled in localhost) or Directly Upload the code on php supported hosting (No editing Required Just Upload and Enjoy)
 <br>
 --> **To Update Website Info (Such as Name, Logo, Favicon, Socials) Edit php/info.php file**
