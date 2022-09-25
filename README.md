@@ -63,7 +63,7 @@ Using Any PHP development environment such as XAMPP, WAMP
 ```
 
 This will start the app on http://localhost<br>
-Make Sure You Edit $webUrl in php/info.php before starting in localhost.. <br>
+Make Sure You Edit $webUrl with your current url in php/info.php before starting in localhost.. <br>
 And Enable the use of .htaccess in PHP enviornment
 
 ## Sponsor this project
