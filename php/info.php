@@ -2,7 +2,7 @@
 // Website Name
 $webName = "AniKatsu";
 // Website URL
-$webUrl = "//{$_SERVER['SERVER_NAME']}:8888";
+$webUrl = "//{$_SERVER['SERVER_NAME']}";  //for example $webUrl = "//{$_SERVER['SERVER_NAME']}:8888";
 // Logo
 $webLogo = "/files/images/logo.png";
 
