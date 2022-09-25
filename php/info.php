@@ -22,9 +22,6 @@ $twitter = "#";
 
 // API URL (Don't edit)
 
-$apiLink = "https://anikatsu2.herokuapp.com"; 
-if (date("d") > 15){
-    $apiLink = "https://anikatsu.herokuapp.com";
-}
+$apiLink = "https://anikatsu.vercel.app/api";
 $banner = $webUrl . "/files/images/banner.png"
 ?>
