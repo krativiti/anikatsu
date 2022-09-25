@@ -4,7 +4,7 @@ $webName = "AniKatsu";
 // Website URL
 $webUrl = "//{$_SERVER['SERVER_NAME']}";
 // Logo
-$webLogo = $webUrl ."/files/images/logo.png";
+$webLogo = "/files/images/logo.png";
 
 // Socials 
 // 1 . Donate 
