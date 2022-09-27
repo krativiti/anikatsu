@@ -108,7 +108,7 @@ require('./php/info.php');
                                         </div>
                                     </div>
                                 <?php } ?>
-                                    
+                                
 
 
                                 </div>
@@ -130,7 +130,7 @@ require('./php/info.php');
         </div>
 
         <div id="anime-featured">
-            
+            <?php include('./php/include/anime-featured.php'); ?>
         </div>
         <div id="main-wrapper">
             <div class="container">

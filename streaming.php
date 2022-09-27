@@ -101,7 +101,7 @@ $episodelist = $getAnime['episode_id'];
                                                 <div class="span3"></div>
                                             </div>
                                         </div>
-                                        <iframe name="iframe-to-load" src="https://anikatsu.ga/player/v1.php?id=<?=$url?>&download=<?=$download?>" frameborder="0" scrolling="no" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                                        <iframe name="iframe-to-load" src="/player/v1.php?id=<?=$url?>&download=<?=$download?>" frameborder="0" scrolling="no" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
                                     </div>
                                     <div class="player-controls">
                                         <div class="pc-item pc-resize">
@@ -153,10 +153,10 @@ $episodelist = $getAnime['episode_id'];
                                             <div class="ps__-title"><i class="fas fa-server mr-2"></i>SERVERS:</div>
                                             <div class="ps__-list">
                                                 <div class="item">
-                                                    <a id="server1" href="https://anikatsu.ga/player/v1.php?id=<?=$url?>&download=<?=$download?>" target="iframe-to-load" class="btn btn-server active">AniKatsu</a>
+                                                    <a id="server1" href="/player/v1.php?id=<?=$url?>&download=<?=$download?>" target="iframe-to-load" class="btn btn-server active">AniKatsu</a>
                                                 </div>
                                                 <div class="item">
-                                                    <a id="server2" href="<?=$webUrl?>/player/v2.php?id=<?=$url?>" target="iframe-to-load" class="btn btn-server">AniKatsu V2</a>
+                                                    <a id="server2" href="/player/v2.php?id=<?=$url?>" target="iframe-to-load" class="btn btn-server">AniKatsu V2</a>
                                                 </div>
                                                 <div class="item">
                                                     <a id="server3" href="<?=$getEpisode['video']?>" target="iframe-to-load" class="btn btn-server">VidStreaming</a>

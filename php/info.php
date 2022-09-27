@@ -18,9 +18,10 @@ $redit = "#";
 // Twitter
 $twitter = "#";
 
+$banner = $webUrl . "/files/images/banner.png";
 
 
-// API URL (Don't edit)
+// API URL
 $apiLink = "https://anikatsu.vercel.app/api";
-$banner = $webUrl . "/files/images/banner.png"
+
 ?>

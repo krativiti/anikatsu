@@ -13,7 +13,7 @@
 
   <p align="center">
     Demo <a href="https://anikatsu.ga">https://anikatsu.ga</a> <br>
-    This is a PHP application used for browsing, searching and watching animes with Ads. The application is built on top of GogoAnime (modified ver of <a href="https://github.com/riimuru/gogoanime-api">riimuru/gogoanime-api</a>) 
+    This is a PHP application used for browsing, searching and watching animes with Ads. The application is built on top of GogoAnime API(modified ver of <a href="https://github.com/riimuru/gogoanime-api">riimuru/gogoanime-api</a>) 
   </p>
 </p>
 
@@ -34,7 +34,9 @@
 ./API Folder is Modified Version of [riimuru/gogoanime-api](https://github.com/riimuru/gogoanime-api) according to the need of the website. 
 
 ## Requirements
---> Before running check check if there is an .htaccess file or not in root dir (usually hidden)
+--> **Before running check check if there is an .htaccess file or not in root dir (usually hidden)**
+<br>
+--> **We recommend hosting your own API and connecting it with your app for better performance [AniKatsu API](https://github.com/riimuru/gogoanime-api). Edit API url in php/info.php **
 <br>
 --> Php environment (use .htaccess must be enabled in localhost) or Directly Upload the code on php supported hosting (No editing Required Just Upload and Enjoy)
 <br>
