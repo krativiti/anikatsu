@@ -2,10 +2,13 @@
 require('../php/info.php');
 
 $id = $_GET['id']; 
-$json = file_get_contents("$apiLink/vidcdn/$id");
+$json = file_get_contents("$consumetAPI/anime/gogoanime/watch/$id");
 $video = json_decode($json, true);
-foreach($video as $video)
+$episodelist = $video['sources'];
+foreach(array_slice($episodelist, 0, 1) as $episode1);
+
 ?>
+
 <head>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
@@ -16,7 +19,7 @@ foreach($video as $video)
   class='player iframe video-js vjs-default-skin vjs-skin-flat-grey vjs-big-play-centered vjs-16-9 vidstreaming_iframe'>
   <script src='https://cdn.jsdelivr.net/hls.js/latest/hls.js'></script> <video preload='none' id='player' autoplay
     controls crossorigin></video>
-  <script>var video = document.querySelector('#player'); if (Hls.isSupported()) { var hls = new Hls(); hls.loadSource('<?=$video['file']?>'); hls.attachMedia(video); hls.on(Hls.Events.MANIFEST_PARSED, function () { video.play(); }); }
+  <script>var video = document.querySelector('#player'); if (Hls.isSupported()) { var hls = new Hls(); hls.loadSource('<?=$episode1['url'];?>'); hls.attachMedia(video); hls.on(Hls.Events.MANIFEST_PARSED, function () { video.play(); }); }
     hls.on(Hls.Events.ERROR, function (event, data) { console.log(data); });
     hls.on(Hls.Events.MANIFEST_PARSED, () => {
       player = loadPlayer();

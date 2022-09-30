@@ -28,9 +28,9 @@ require('./php/info.php');
     <meta property="og:image:height" content="350">
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
-    <link rel="shortcut icon" href="<?=$webUrl?>/files/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/style.css">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/min.css">
+    <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
     <script type="text/javascript">
         setTimeout(function () {
             var wpse326013 = document.createElement('link');
@@ -56,7 +56,7 @@ require('./php/info.php');
 <body data-page="page_home">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('./php/include/header.html');?>
+        <?php include('./php/include/header.php');?>
         <div class="clearfix"></div>
         <div class="deslide-wrap">
             <div class="container" style="max-width:100%!important;width:100%!important;">
@@ -79,7 +79,7 @@ require('./php/info.php');
                 <section class="block_area block_area_trending">
                     <div class="block_area-header">
                         <div class="bah-heading">
-                            <h2 class="cat-heading">Trending</h2>
+                            <h2 class="cat-heading">Top Airing</h2>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -89,20 +89,20 @@ require('./php/info.php');
                                 <div class="swiper-wrapper">
 
                                 <?php 
-                                $json = file_get_contents("$apiLink/getPopular/1");
+                                $json = file_get_contents("$consumetAPI/anime/gogoanime/top-airing");
                                 $json = json_decode($json, true);
-                                foreach($json as $key => $popular) { ?>
+                                foreach($json['results'] as $key => $popular) { ?>
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <div class="number">
                                                 <span><?=$key+1?></span>
-                                                <div class="film-title dynamic-name" data-jname="<?=$popular['animeTitle']?>"><?=$popular['animeTitle']?></div>
+                                                <div class="film-title dynamic-name" data-jname="<?=$popular['title']?>"><?=$popular['title']?></div>
                                             </div>
-                                            <a href="/anime/<?=$popular['animeId']?>" class="film-poster"
-                                                title="<?=$popular['animeTitle']?>">
-                                                <img data-src="<?=$popular['imgUrl']?>"
-                                                    src="<?=$popular['imgUrl']?>"
-                                                    class="film-poster-img lazyload" alt="<?=$popular['animeTitle']?>">
+                                            <a href="/anime/<?=$popular['id']?>" class="film-poster"
+                                                title="<?=$popular['title']?>">
+                                                <img data-src="<?=$popular['image']?>"
+                                                    src="<?=$popular['image']?>"
+                                                    class="film-poster-img lazyload" alt="<?=$popular['title']?>">
                                             </a>
                                             <div class="clearfix"></div>
                                         </div>
@@ -151,37 +151,37 @@ require('./php/info.php');
                                 <div class="film_list-wrap">
 
                                 <?php 
-                                $json = file_get_contents("$apiLink/getRecent/1/1");
+                                $json = file_get_contents("$consumetAPI/anime/gogoanime/recent-episodes");
                                 $json = json_decode($json, true);
-                                foreach($json as $recentRelease) { ?>
+                                foreach($json['results'] as $recentRelease) { ?>
                                     <div class="flw-item">
                                         <div class="film-poster">
                                             <div class="tick ltr">
-                                                <div class="tick-item-sub  tick-eps amp-algn"><?=$recentRelease['subOrDub']?></div>
+                                                <div class="tick-item-sub  tick-eps amp-algn">SUB</div>
                                             </div>
                                             <div class="tick rtl">
-                                                <div class="tick-item tick-eps amp-algn">Episode <?=$recentRelease['episodeNum']?></div>
+                                                <div class="tick-item tick-eps amp-algn">Episode <?=$recentRelease['episodeNumber']?></div>
                                             </div>
                                             <img class="film-poster-img lazyload"
-                                                data-src="<?=$recentRelease['imgUrl']?>"
-                                                src="<?=$recentRelease['imgUrl']?>"
-                                                alt="<?=$recentRelease['name']?>">
+                                                data-src="<?=$recentRelease['image']?>"
+                                                src="<?=$recentRelease['image']?>"
+                                                alt="<?=$recentRelease['title']?>">
                                             <a class="film-poster-ahref"
                                                 href="/watch/<?=$recentRelease['episodeId']?>"
-                                                title="<?=$recentRelease['name']?>"
-                                                data-jname="<?=$recentRelease['name']?>"><i class="fas fa-play"></i></a>
+                                                title="<?=$recentRelease['title']?>"
+                                                data-jname="<?=$recentRelease['title']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
                                                     href="/watch/<?=$recentRelease['episodeId']?>"
-                                                    title="<?=$recentRelease['name']?>"
-                                                    data-jname="<?=$recentRelease['name']?>"><?=$recentRelease['name']?></a>
+                                                    title="<?=$recentRelease['title']?>"
+                                                    data-jname="<?=$recentRelease['title']?>"><?=$recentRelease['title']?></a>
                                             </h3>
                                             <div class="fd-infor">
                                                 <span class="fdi-item">Latest</span>
                                                 <span class="dot"></span>
-                                                <span class="fdi-item"><?=$recentRelease['subOrDub']?></span>
+                                                <span class="fdi-item">SUB</span>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -212,31 +212,31 @@ require('./php/info.php');
                             <div class="block_area-content block_area-list film_list film_list-grid">
                                 <div class="film_list-wrap">
                                 <?php 
-                                $json = file_get_contents("$apiLink/getRecent/1/2");
+                                $json = file_get_contents("$consumetAPI/anime/gogoanime/recent-episodes?type=2");
                                 $json = json_decode($json, true);
-                                foreach($json as $recentReleaseDub) { ?>
+                                foreach($json['results'] as $recentReleaseDub) { ?>
 
                                     <div class="flw-item">
                                         <div class="film-poster">
                                         <div class="tick ltr">
-                                                <div class="tick-item-dub  tick-eps amp-algn"><?=$recentReleaseDub['subOrDub']?></div>
+                                                <div class="tick-item-dub  tick-eps amp-algn">DUB</div>
                                             </div>
                                             <div class="tick rtl">
-                                                <div class="tick-item tick-eps amp-algn">Episode <?=$recentReleaseDub['episodeNum']?></div>
+                                                <div class="tick-item tick-eps amp-algn">Episode <?=$recentReleaseDub['episodeNumber']?></div>
                                             </div>
                                             <img class="film-poster-img lazyload"
-                                                data-src="<?=$recentReleaseDub['imgUrl']?>"
-                                                src="<?=$recentReleaseDub['imgUrl']?>"
-                                                alt="<?=$recentReleaseDub['imgUrl']?>">
+                                                data-src="<?=$recentReleaseDub['image']?>"
+                                                src="<?=$recentReleaseDub['image']?>"
+                                                alt="<?=$recentReleaseDub['image']?>">
                                             <a class="film-poster-ahref"
-                                                href="/watch/<?=$recentReleaseDub['episodeId']?>" title="<?=$recentReleaseDub['name']?>"
-                                                data-jname="<?=$recentReleaseDub['name']?>"><i class="fas fa-play"></i></a>
+                                                href="/watch/<?=$recentReleaseDub['episodeId']?>" title="<?=$recentReleaseDub['title']?>"
+                                                data-jname="<?=$recentReleaseDub['title']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
-                                                    href="/watch/<?=$recentReleaseDub['episodeId']?>" title="<?=$recentReleaseDub['name']?>"
-                                                    data-jname="<?=$recentReleaseDub['name']?>"><?=$recentReleaseDub['name']?></a>
+                                                    href="/watch/<?=$recentReleaseDub['episodeId']?>" title="<?=$recentReleaseDub['title']?>"
+                                                    data-jname="<?=$recentReleaseDub['title']?>"><?=$recentReleaseDub['title']?></a>
                                             </h3>
                                             <div class="fd-infor">
                                                 <span class="fdi-item">Latest</span>
@@ -261,15 +261,15 @@ require('./php/info.php');
         <?php include('./php/include/footer.html'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?=$webUrl?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/app.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/comman.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/movie.js"></script>
+        <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/function.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>
     </div>
 </body>
 

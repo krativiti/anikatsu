@@ -34,9 +34,9 @@ if ($page == ""){
     <meta name="theme-color" content="#202125">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" type="text/css">
-    <link rel="shortcut icon" href="<?=$webUrl?>/files/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/style.css">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/min.css">
+    <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
     <script type="text/javascript">
         setTimeout(function () {
             var wpse326013 = document.createElement('link');
@@ -63,7 +63,7 @@ if ($page == ""){
 <body data-page="page_anime">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('../php/include/header.html'); ?>
+        <?php include('../php/include/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper">
             <div class="container">
@@ -178,15 +178,15 @@ if ($page == ""){
         <?php include('../php/include/footer.html'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?=$webUrl?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/app.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/comman.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/movie.js"></script>
+        <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/function.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>
 
         <div style="display:none;">
         </div>

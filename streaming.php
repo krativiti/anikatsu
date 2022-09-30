@@ -9,50 +9,53 @@ $getEpisode = json_decode($getEpisode, true);
 $anime = $getEpisode['anime_info'];
 $download = str_replace("Gogoanime", "AniKatsu", $getEpisode['ep_download']);
 
-$getAnime = file_get_contents("$apiLink/getAnime/$anime");
+$getAnime = file_get_contents("$consumetAPI/anime/gogoanime/info/$anime");
 $getAnime = json_decode($getAnime, true);
-$episodelist = $getAnime['episode_id'];
+$episodelist = $getAnime['episodes'];
+$epNumber = str_replace($getAnime['id'] . "-episode-", "", $url)
+
+
 
 ?>
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Watch <?=$getEpisode['animeNameWithEP']?>on AniKatsu</title>
+    <title>Watch <?=$getAnime['title']?> Episode <?=$epNumber?> on AniKatsu</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="Watch <?=$getEpisode['animeNameWithEP']?>on AniKatsu">
-    <meta name="description" content="<?=substr($getAnime['synopsis'],0, 150)?> ... at <?=$webUrl?>">
-    <meta name="keywords" content="AniKatsu, <?=$getEpisode['animeNameWithEP']?>,<?=$getAnime['name']?>, watch anime online, free anime, anime stream, anime hd, english sub">
+    <meta name="title" content="Watch <?=$getAnime['title']?> Episode <?=$epNumber?> on AniKatsu">
+    <meta name="description" content="<?=substr($getAnime['description'],0, 150)?> ... at <?=$webUrl?>">
+    <meta name="keywords" content="AniKatsu, <?=$getEpisode['animeNameWithEP']?>,<?=$getAnime['title']?>, watch anime online, free anime, anime stream, anime hd, english sub">
     <meta name="charset" content="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="robots" content="index, follow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Content-Language" content="en">
-    <meta property="og:title" content="Watch <?=$getEpisode['animeNameWithEP']?>on AniKatsu">
-    <meta property="og:description" content="<?=substr($getAnime['synopsis'],0, 150)?> ... at <?=$webUrl?>">
+    <meta property="og:title" content="Watch <?=$getAnime['title']?> Episode <?=$epNumber?> on AniKatsu">
+    <meta property="og:description" content="<?=substr($getAnime['description'],0, 150)?> ... at <?=$webUrl?>">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AniKatsu">
-    <meta property="og:url" content="<?=$webUrl?>/anime/<?=$url?>">
-    <meta itemprop="image" content="<?=$getAnime['imgUrl']?>">
-    <meta property="og:image" content="<?=$getAnime['imgUrl']?>">
-    <meta property="twitter:title" content="Watch <?=$getEpisode['animeNameWithEP']?>on AniKatsu">
-    <meta property="twitter:description" content="<?=substr($getAnime['synopsis'],0, 150)?> ... at <?=$webUrl?>">
-    <meta property="twitter:url" content="<?=$webUrl?>/anime/<?=$url?>">
+    <meta property="og:url" content="<?=$webUrl?>/watch/<?=$url?>">
+    <meta itemprop="image" content="<?=$getAnime['image']?>">
+    <meta property="og:image" content="<?=$getAnime['image']?>">
+    <meta property="twitter:title" content="Watch <?=$getAnime['title']?> Episode <?=$epNumber?> on AniKatsu">
+    <meta property="twitter:description" content="<?=substr($getAnime['description'],0, 150)?> ... at <?=$webUrl?>">
+    <meta property="twitter:url" content="<?=$webUrl?>/watch/<?=$url?>">
     <meta property="twitter:card" content="summary">
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" type="text/css">
-    <link rel="shortcut icon" href="<?=$webUrl?>/files/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/style.css">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/min.css">
+    <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
 </head>
 
 <body data-page="movie_watch">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="movie_watch">
-        <?php include('./php/include/header.html');?>
+        <?php include('./php/include/header.php');?>
         <div class="clearfix"></div>
         <div id="main-wrapper" date-page="movie_watch" data-id="">
             <div id="ani_detail">
@@ -78,14 +81,14 @@ $episodelist = $getAnime['episode_id'];
                                             <meta itemprop="position" content="2">
                                         </li>
                                         <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="breadcrumb-item" aria-current="page">
-                                            <a itemprop="item" href="/anime/<?=$anime?>"><span itemprop="name"><?=$getAnime['name']?></span></a>
+                                            <a itemprop="item" href="/anime/<?=$anime?>"><span itemprop="name"><?=$getAnime['title']?></span></a>
                                             <meta itemprop="position" content="3">
                                         </li>
                                         <li itemprop="itemListElement" itemscope=""
                                             itemtype="http://schema.org/ListItem" class="breadcrumb-item"
                                             aria-current="page">
                                             <a itemprop="item" href="<?=$webUrl?>/watch/<?=$url?>"><span
-                                                    itemprop="name">Episode <?=$getEpisode['ep_num']?></span></a>
+                                                    itemprop="name">Episode <?=$epNumber?></span></a>
                                             <meta itemprop="position" content="4">
                                         </li>
                                     </ol>
@@ -101,7 +104,7 @@ $episodelist = $getAnime['episode_id'];
                                                 <div class="span3"></div>
                                             </div>
                                         </div>
-                                        <iframe name="iframe-to-load" src="/player/v1.php?id=<?=$url?>&download=<?=$download?>" frameborder="0" scrolling="no" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                                        <iframe name="iframe-to-load" src="/player/v2.php?id=<?=$url?>&download=<?=$download?>" frameborder="0" scrolling="no" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
                                     </div>
                                     <div class="player-controls">
                                         <div class="pc-item pc-resize">
@@ -153,16 +156,13 @@ $episodelist = $getAnime['episode_id'];
                                             <div class="ps__-title"><i class="fas fa-server mr-2"></i>SERVERS:</div>
                                             <div class="ps__-list">
                                                 <div class="item">
-                                                    <a id="server1" href="/player/v1.php?id=<?=$url?>&download=<?=$download?>" target="iframe-to-load" class="btn btn-server active">AniKatsu</a>
+                                                    <a id="server1" href="/player/v2.php?id=<?=$url?>" target="iframe-to-load" class="btn btn-server active">AniKatsu</a>
                                                 </div>
                                                 <div class="item">
-                                                    <a id="server2" href="/player/v2.php?id=<?=$url?>" target="iframe-to-load" class="btn btn-server">AniKatsu V2</a>
+                                                    <a id="server2" href="<?=$getEpisode['video']?>" target="iframe-to-load" class="btn btn-server">VidStreaming</a>
                                                 </div>
                                                 <div class="item">
-                                                    <a id="server3" href="<?=$getEpisode['video']?>" target="iframe-to-load" class="btn btn-server">VidStreaming</a>
-                                                </div>
-                                                <div class="item">
-                                                    <a id="server4" href="<?=$getEpisode['streamsb']?>" target="iframe-to-load" class="btn btn-server">StreamSB</a>
+                                                    <a id="server3" href="<?=$getEpisode['streamsb']?>" target="iframe-to-load" class="btn btn-server">StreamSB</a>
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -188,9 +188,9 @@ $episodelist = $getAnime['episode_id'];
 
                                                     <?php 
                                                     foreach ($episodelist as $episodelist) {  ?>
-                                                    <a title="Episode <?=$episodelist['episodeNum']?>" class="ssl-item ep-item <?php if ($getEpisode['ep_num'] === $episodelist['episodeNum']) {echo 'active';}?>"
-                                                        href="/watch/<?=$episodelist['episodeId']?>">
-                                                        <div class="ssli-order" title=""><?=$episodelist['episodeNum']?></div>
+                                                    <a title="Episode <?=$episodelist['number']?>" class="ssl-item ep-item <?php if ($url === $episodelist['id']) {echo 'active';}?>"
+                                                        href="/watch/<?=$episodelist['id']?>">
+                                                        <div class="ssli-order" title=""><?=$episodelist['number']?></div>
                                                         <div class="ssli-detail">
                                                             <div class="ep-name dynamic-name" data-jname="" title="">
                                                             </div>
@@ -213,17 +213,17 @@ $episodelist = $getAnime['episode_id'];
                                 <div class="anis-content">
                                     <div class="anisc-poster">
                                         <div class="film-poster">
-                                            <img src="<?=$getAnime['imageUrl']?>"
-                                                data-src="<?=$getAnime['imageUrl']?>"
+                                            <img src="<?=$getAnime['image']?>"
+                                                data-src="<?=$getAnime['image']?>"
                                                 class="film-poster-img ls-is-cached lazyloaded"
-                                                alt="<?=$getAnime['name']?>">
+                                                alt="<?=$getAnime['title']?>">
                                         </div>
                                     </div>
                                     <div class="anisc-detail">
                                         <h2 class="film-name">
                                             <a href="/anime/<?=$anime?>" class="text-white dynamic-name"
-                                                title="<?=$getAnime['name']?>" data-jname="<?=$getAnime['name']?>"
-                                                style="opacity: 1;"><?=$getAnime['name']?></a>
+                                                title="<?=$getAnime['title']?>" data-jname="<?=$getAnime['title']?>"
+                                                style="opacity: 1;"><?=$getAnime['title']?></a>
                                         </h2>
                                         <div class="film-stats">
                                             <div class="tac tick-item tick-quality">HD</div>
@@ -231,18 +231,18 @@ $episodelist = $getAnime['episode_id'];
                                             <span class="dot"></span>
                                             <span class="item"><?=$getAnime['status']?></span>
                                             <span class="dot"></span>
-                                            <span class="item"><?=$getAnime['released']?></span>
+                                            <span class="item"><?=$getAnime['releaseDate']?></span>
                                             <span class="dot"></span>
-                                            <span class="item"><?=$getAnime['othername']?></span>
+                                            <span class="item"><?=$getAnime['otherName']?></span>
                                             <span class="dot"></span>
                                             <span class="item"><?=$getAnime['type']?></span>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="film-description m-hide">
-                                            <div class="text"><?=$getAnime['synopsis']?></div>
+                                            <div class="text"><?=$getAnime['description']?></div>
                                         </div>
                                         <div class="film-text m-hide mb-3">
-                                            AniKatsu is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality
+                                            AniKatsu is a site to watch online anime like <strong><?=$getAnime['title']?></strong> online, or you can even watch <strong><?=$getAnime['title']?></strong> in HD quality
                                         </div>
                                         <div class="block"><a href="/anime/<?=$anime?>"
                                                 class="btn btn-xs btn-light"><i class="fas fa-book-open mr-2"></i> View detail</a></div>
@@ -304,15 +304,15 @@ $episodelist = $getAnime['episode_id'];
         <?php include('./php/include/footer.html'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?=$webUrl?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/app.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/comman.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/movie.js"></script>
+        <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/function.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>
         <script type="text/javascript">
             $(".btn-server").click(function () {
                 $(".btn-server").removeClass("active");

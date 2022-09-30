@@ -24,4 +24,9 @@ $banner = $webUrl . "/files/images/banner.png";
 // API URL
 $apiLink = "https://anikatsu.vercel.app/api";
 
+
+
+// consumet api (Don't Edit)
+$consumetAPI = "https://api.consumet.org"
+
 ?>

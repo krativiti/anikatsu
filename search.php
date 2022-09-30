@@ -36,9 +36,9 @@ if ($page == ""){
     <meta name="theme-color" content="#202125">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" type="text/css">
-    <link rel="shortcut icon" href="<?=$webUrl?>/files/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/style.css">
-    <link rel="stylesheet" href="<?=$webUrl?>/files/css/min.css">
+    <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
+    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
     <script type="text/javascript">
         setTimeout(function () {
             var wpse326013 = document.createElement('link');
@@ -65,7 +65,7 @@ if ($page == ""){
 <body data-page="page_anime">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('./php/include/header.html'); ?>
+        <?php include('./php/include/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper">
             <div class="container">
@@ -82,45 +82,35 @@ if ($page == ""){
                                 <div class="film_list-wrap">
 
                                 <?php 
-                                $json = file_get_contents("$apiLink/search/$keyword/$page");
+                                $json = file_get_contents("$consumetAPI/anime/gogoanime/$keyword?$page=1");
                                 $json = json_decode($json, true);
-                                foreach($json as $key => $search) { ?>
+                                foreach($json['results'] as $key => $search) { ?>
                                     <div class="flw-item">
                                         <div class="film-poster">
                                             <div class="tick ltr">
-                                                <div class="tick-item-<?php $str = $search['name'];
-                                                  $last_word_start = strrpos ( $str , " ") + 1;
-                                                  $last_word_end = strlen($str) - 1;
-                                                  $last_word = substr($str, $last_word_start, $last_word_end);
-                                                  if ($last_word == "(Dub)"){echo "dub";} else {echo "sub";}
-                                                ?>   tick-eps amp-algn"><?php $str = $search['name'];
-                                                $last_word_start = strrpos ( $str , " ") + 1;
-                                                $last_word_end = strlen($str) - 1;
-                                                $last_word = substr($str, $last_word_start, $last_word_end);
-                                                if ($last_word == "(Dub)"){echo "Dub";} else {echo "Sub";}
-                                              ?></div>
+                                                <div class="tick-item-<?=$search['subOrDub'];?> tick-eps amp-algn"><?=strtoupper($search['subOrDub']);?></div>
                                             </div>
                                             <div class="tick rtl">
                                             </div>
                                             <img class="film-poster-img lazyload"
-                                                data-src="<?=$search['img_url']?>"
+                                                data-src="<?=$search['image']?>"
                                                 src="<?=$webUrl?>/files/images/no_poster.jpg"
-                                                alt="<?=$search['name']?>">
+                                                alt="<?=$search['title']?>">
                                             <a class="film-poster-ahref"
-                                                href="/anime/<?=$search['anime_id']?>"
-                                                title="<?=$search['name']?>"
-                                                data-jname="<?=$search['name']?>"><i class="fas fa-play"></i></a>
+                                                href="/anime/<?=$search['id']?>"
+                                                title="<?=$search['title']?>"
+                                                data-jname="<?=$search['title']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
-                                                    href="/anime/<?=$search['anime_id']?>"
-                                                    title="<?=$search['name']?>"
-                                                    data-jname="<?=$search['name']?>"><?=$search['name']?></a>
+                                                    href="/anime/<?=$search['id']?>"
+                                                    title="<?=$search['title']?>"
+                                                    data-jname="<?=$search['title']?>"><?=$search['title']?></a>
                                             </h3>
                                             <div class="description"></div>
                                             <div class="fd-infor">
-                                                <span class="fdi-item"><?=$search['status']?></span>
+                                                <span class="fdi-item"><?=$search['releaseDate']?></span>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
@@ -176,15 +166,15 @@ if ($page == ""){
         <?php include('./php/include/footer.html'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://anikatsu.ga/files/js/video.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/app.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/movie.js"></script>
-        <link rel="stylesheet" href="<?=$webUrl?>/files/css/jquery-ui.css">
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/app.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/comman.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/movie.js"></script>
+        <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/function.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>
 
         <div style="display:none;">
         </div>

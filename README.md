@@ -64,7 +64,7 @@ Now start the production build of the site using
 Using Any PHP development environment such as XAMPP, WAMP
 ```
 
-This will start the app on http://localhost<br>
+This will start the app on http://localhost/{FOLDER NAME}<br>
 Make Sure You Edit $webUrl with your current url in php/info.php before starting in localhost.. <br>
 And Enable the use of .htaccess in PHP enviornment
 
