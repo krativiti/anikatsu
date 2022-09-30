@@ -22,10 +22,13 @@ $banner = $webUrl . "/files/images/banner.png";
 
 
 // API URL
-$apiLink = "https://anikatsu.vercel.app/api";
+if (date("d") < "20") {
+    $apiLink = "https://anikatsu-api1.herokuapp.com";
+  } else {
+    $apiLink ="https://anikatsu-api2.herokuapp.com";
+  };
 
-
-
+  
 // consumet api (Don't Edit)
 $consumetAPI = "https://api.consumet.org"
 
