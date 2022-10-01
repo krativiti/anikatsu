@@ -80,36 +80,36 @@ if ($page == ""){
                                 <div class="film_list-wrap">
 
                                 <?php 
-                                $json = file_get_contents("$consumetAPI/anime/gogoanime/recent-episodes?type=2&page=$page");
+                                $json = file_get_contents("$apiLink/getRecent/$page/2");
                                 $json = json_decode($json, true);
-                                foreach($json['results'] as $key => $dubbed) { ?>
+                                foreach($json as $key => $dubbed) { ?>
                                     <div class="flw-item">
                                         <div class="film-poster">
                                         <div class="tick ltr">
                                                 <div class="tick-item-dub tick-eps amp-algn">Dub</div>
                                             </div>
                                             <div class="tick rtl">
-                                                <div class="tick-item tick-eps amp-algn">Episode <?=$dubbed['episodeNumber']?></div>
+                                                <div class="tick-item tick-eps amp-algn">Episode <?=$dubbed['episodeNum']?></div>
                                             </div>
                                             <img class="film-poster-img lazyload"
-                                                data-src="<?=$dubbed['image']?>"
-                                                src="<?=$webUrl?>/files/images/no_poster.jpg"
-                                                alt="<?=$dubbed['title']?>">
+                                                data-src="<?=$dubbed['imgUrl']?>"
+                                                src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
+                                                alt="<?=$dubbed['name']?>">
                                             <a class="film-poster-ahref"
-                                                href="/watch/<?=$dubbed['episodeId']?>"
-                                                title="<?=$dubbed['title']?>"
-                                                data-jname="<?=$dubbed['title']?>"><i class="fas fa-play"></i></a>
+                                                href="/anime/<?=$dubbed['animeId']?>"
+                                                title="<?=$dubbed['name']?>"
+                                                data-jname="<?=$dubbed['name']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
-                                                    href="/watch/<?=$dubbed['episodeId']?>"
-                                                    title="<?=$dubbed['title']?>"
-                                                    data-jname="<?=$dubbed['title']?>"><?=$dubbed['title']?></a>
+                                                    href="/anime/<?=$dubbed['animeId']?>"
+                                                    title="<?=$dubbed['name']?>"
+                                                    data-jname="<?=$dubbed['name']?>"><?=$dubbed['name']?></a>
                                             </h3>
                                             <div class="description"></div>
                                             <div class="fd-infor">
-                                                <span class="fdi-item">Dub</span>
+                                                <span class="fdi-item"><?=$dubbed['subOrDub']?></span>
                                                 <span class="dot"></span>
                                                 <span class="fdi-item">Latest</span>
                                             </div>
@@ -172,7 +172,7 @@ if ($page == ""){
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
         <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/app.js"></script>
         <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/comman.js"></script>
-        <script type="text/javascript" src="<?=$webUrl?>/files/js/subbed.js"></script>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/subbed.js"></script>
         <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>

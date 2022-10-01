@@ -28,8 +28,4 @@ if (date("d") < "20") {
     $apiLink ="https://anikatsu-api2.herokuapp.com";
   };
 
-  
-// consumet api (Don't Edit)
-$consumetAPI = "https://api.consumet.org"
-
 ?>

@@ -109,7 +109,7 @@ if ($page == ""){
                                             </div>
                                             <img class="film-poster-img lazyload"
                                                 data-src="<?=$genreFetch['animeImg']?>"
-                                                src="<?=$webUrl?>/files/images/no_poster.jpg"
+                                                src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
                                                 alt="<?=$genreFetch['animeTitle']?>">
                                             <a class="film-poster-ahref"
                                                 href="/anime/<?=$genreFetch['animeId']?>"

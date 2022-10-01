@@ -102,7 +102,7 @@ if ($page == ""){
                                             </div>
                                             <img class="film-poster-img lazyload"
                                                 data-src="<?=$completed['imgUrl']?>"
-                                                src="<?=$webUrl?>/files/images/no_poster.jpg"
+                                                src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
                                                 alt="<?=$completed['animeTitle']?>">
                                             <a class="film-poster-ahref"
                                                 href="/anime/<?=$completed['animeId']?>"

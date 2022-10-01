@@ -3,37 +3,41 @@ require_once('./php/info.php');
 $parts=parse_url($_SERVER['REQUEST_URI']); 
 $page_url=explode('/', $parts['path']);
 $url = $page_url[count($page_url)-1];
-//$url = "tokyo-revengers";
+//$url = "naruto";
 
-$getAnime = file_get_contents("$consumetAPI/anime/gogoanime/info/$url");
+$getAnime = file_get_contents("$apiLink/getAnime/$url");
 $getAnime = json_decode($getAnime, true);
-$episodelist = $getAnime['episodes'];
+$episodelist = $getAnime['episode_id'];
 ?>
 <!DOCTYPE html>
 <html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Watch <?=$getAnime['title']?> - AniKatsu</title>
+    <title>Watch <?=$getAnime['name']?> - AniKatsu</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="Watch <?=$getAnime['title']?> - AniKatsu" />
-    <meta name="description" content="<?=substr($getAnime['description'],0, 90)?>.... Read More On AniKatsu" />
+    <meta name="title" content="Watch <?=$getAnime['name']?> - AniKatsu" />
+    <meta name="description" content="<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On AniKatsu" />
     <meta name="keywords" content="AniKatsu, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, AniKatsu, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa" />
     <meta name="charset" content="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Language" content="en" />
-    <meta property="og:title" content="Watch <?=$getAnime['title']?> - AniKatsu">
-    <meta property="og:description" content="W<?=substr($getAnime['description'],0, 90)?>.... Read More On AniKatsu.">
+    <meta property="og:title" content="Watch <?=$getAnime['name']?> - AniKatsu">
+    <meta property="og:description" content="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On AniKatsu.">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="AniKatsu">
     <meta property="og:url" content="<?=$webUrl?>/anime/<?=$url?>">
-    <meta itemprop="image" content="<?=$getAnime['image']?>">
-    <meta property="og:image" content="<?=$getAnime['image']?>">
-    <meta property="og:image:secure_url" content="<?=$getAnime['image']?>">
+    <meta itemprop="image" content="<?=$getAnime['imageUrl']?>">
+    <meta property="og:image" content="<?=$getAnime['imageUrl']?>">
+    <meta property="og:image:secure_url" content="<?=$getAnime['imageUrl']?>">
     <meta property="og:image:width" content="650">
     <meta property="og:image:height" content="350">
+    <meta property="twitter:title" content="Watch <?=$getAnime['name']?> - AniKatsu">
+    <meta property="twitter:description" ontent="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On AniKatsu.">
+    <meta property="twitter:url" content="<?=$webUrl?>/anime/<?=$url?>">
+    <meta property="twitter:card" content="summary">
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
     <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
@@ -73,13 +77,13 @@ $episodelist = $getAnime['episodes'];
                     <div class="container">
                         <div class="anis-cover-wrap">
                             <div class="anis-cover"
-                                style="background-image: url('<?=$getAnime['image']?>')"></div>
+                                style="background-image: url('<?=$getAnime['imageUrl']?>')"></div>
                         </div>
                         <div class="anis-content">
                             <div class="anisc-poster">
                                 <div class="film-poster">
-                                    <img src="<?=$webUrl?>/files/images/no_poster.jpg"
-                                        data-src="<?=$getAnime['image']?>"
+                                    <img src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
+                                        data-src="<?=$getAnime['imageUrl']?>"
                                         class="lazyload film-poster-img">
                                 </div>
                             </div>
@@ -99,19 +103,19 @@ $episodelist = $getAnime['episodes'];
                                             </li>
                                             <li itemprop="itemListElement" itemscope=""
                                                 itemtype="http://schema.org/ListItem"
-                                                class="breadcrumb-item dynamic-name" data-jname="<?=$getAnime['title']?>"
+                                                class="breadcrumb-item dynamic-name" data-jname="<?=$getAnime['name']?>"
                                                 aria-current="page">
-                                                <a itemprop="item" href="/anime/<?=$url?>"><span itemprop="name"><?=$getAnime['title']?></span></a>
+                                                <a itemprop="item" href="/anime/<?=$url?>"><span itemprop="name"><?=$getAnime['name']?></span></a>
                                                 <meta itemprop="position" content="3">
                                             </li>
                                         </ol>
                                     </nav>
                                 </div>
-                                <h2 class="film-name dynamic-name" data-jname="<?=$getAnime['title']?>"><?=$getAnime['title']?></h2>
+                                <h2 class="film-name dynamic-name" data-jname="<?=$getAnime['name']?>"><?=$getAnime['name']?></h2>
                                 <div class="film-stats">
                                     <div class="tac tick-item tick-quality">HD</div>
                                     <div class="tac tick-item tick-dub">
-                                    <?php $str = $getAnime['title'];
+                                    <?php $str = $getAnime['name'];
                                           $last_word_start = strrpos ( $str , " ") + 1;
                                           $last_word_end = strlen($str) - 1;
                                           $last_word = substr($str, $last_word_start, $last_word_end);
@@ -122,34 +126,34 @@ $episodelist = $getAnime['episodes'];
                                     <span class="item"><?=$getAnime['type']?></span>
                                     <div class="clearfix"></div>
                                 </div>
-                                <?php if(count($getAnime['episodes']) == 0) {
+                                <?php if(count($getAnime['episode_id']) == 0) {
                                     echo "";
                                 } else { ?>
                                 <div class="film-buttons">
-                                    <a href="/watch/<?php foreach(array_slice($episodelist, 0, 1) as $episode1) {?><?=$episode1['id']?><?php } ?>" class="btn btn-radius btn-primary btn-play"><i
+                                    <a href="/watch/<?php foreach(array_slice($episodelist, 0, 1) as $episode1) {?><?=$episode1['episodeId']?><?php } ?>" class="btn btn-radius btn-primary btn-play"><i
                                             class="fas fa-play mr-2"></i>Watch now</a>
                                     <div class="dr-fav" id="watch-list-content">
                                     </div>
                                 </div>
                                 <?php } ?>
                                 <div class="film-description m-hide">
-                                    <div class="text"><?=$getAnime['description']?></div>
+                                    <div class="text"><?=$getAnime['synopsis']?></div>
                                 </div>
-                                <div class="film-text m-hide">AniKatsu is a site to watch online anime like <strong><?=$getAnime['title']?></strong> online, or you can even watch <strong><?=$getAnime['title']?></strong> in HD quality</div>
+                                <div class="film-text m-hide">AniKatsu is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality</div>
                             </div>
                             <div class="anisc-info-wrap">
                                 <div class="anisc-info">
                                     <div class="item item-title w-hide">
                                         <span class="item-head">Overview:</span>
-                                        <div class="text"><?=$getAnime['description']?></div>
+                                        <div class="text"><?=$getAnime['synopsis']?></div>
                                     </div>
                                     <div class="item item-title">
-                                        <span class="item-head">Other names:</span> <span class="name"><?=$getAnime['otherName']?></span>
+                                        <span class="item-head">Other names:</span> <span class="name"><?=$getAnime['othername']?></span>
                                     </div>
                                     <div class="item item-title">
                                         <span class="item-head">Language:</span> 
                                         <span class="name">
-                                            <?php $str = $getAnime['title'];
+                                            <?php $str = $getAnime['name'];
                                                 $last_word_start = strrpos ( $str , " ") + 1;
                                                 $last_word_end = strlen($str) - 1;
                                                 $last_word = substr($str, $last_word_start, $last_word_end);
@@ -158,23 +162,21 @@ $episodelist = $getAnime['episodes'];
                                         </span>
                                     </div>
                                     <div class="item item-title">
-                                        <span class="item-head">Episodes:</span> <span class="name"><?php echo count($getAnime['episodes'])?></span>
+                                        <span class="item-head">Episodes:</span> <span class="name"><?php echo count($getAnime['episode_id'])?></span>
                                     </div>
                                     <div class="item item-title">
-                                        <span class="item-head">Release Year:</span> <span class="name"><?php if(isset($getAnime['releaseDate'])): ?>
-                                                                                                            <?php echo $getAnime['releaseDate']?>
-                                                                                                        <?php endif; ?></span>
+                                        <span class="item-head">Release Year:</span> <span class="name"><?=$getAnime['released']?></span>
                                     </div>
                                     <div class="item item-title">
-                                        <span class="item-head">Type:</span> <a href="<?=$webUrl?>/sub-category/<?=strtolower(str_replace(" ", "-",$getAnime['type']));?>"><span class="name"><?=$getAnime['type']?></span>
+                                        <span class="item-head">Type:</span> <span class="name"><?=$getAnime['type']?></span>
                                     </div>
                                     <div class="item item-title">
                                         <span class="item-head">Status:</span> <a href="<?php if ($getAnime['status'] == "Completed") {echo "/status/completed";} else {echo "/status/ongoing";}?>"><?=$getAnime['status']?></a>
                                     </div>
                                     <div class="item item-list">
-                                        <span class="item-head">Genres:</span> <?php foreach($getAnime['genres'] as $genre) { ?><a href="<?=$webUrl?>/genre/<?=strtolower(str_replace(" ", "+",$genre))?>"><?=$genre?></a><?php } ?>
+                                        <span class="item-head">Genres:</span> <?php foreach($getAnime['genres'] as $genre) { ?><a><?=$genre?></a><?php } ?>
                                     </div>
-                                    <div class="film-text w-hide">AniKatsu is a site to watch online anime like <strong><?=$getAnime['title']?></strong> online, or you can even watch <strong><?=$getAnime['title']?></strong> in HD quality</div>
+                                    <div class="film-text w-hide">AniKatsu is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality</div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>

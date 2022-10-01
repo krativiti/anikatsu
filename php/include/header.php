@@ -213,14 +213,14 @@
                 </ul>
             </div>
         </div>
-       <!-- <div id="header_right">
+        <div id="header_right">
             <div id="user-slot">
                 <div class="header_right-user">
-                    <a href="#" class="btn-user btn btn-sm btn-primary btn-login"><i
-                            class="fas fa-user"></i></a>
+                    <!--<a href="#" class="btn-user btn btn-sm btn-primary btn-login"><i
+                            class="fas fa-user"></i></a>--->
                 </div>
             </div>
-        </div> -->
+        </div>
         <div id="mobile_search" class=""><i class="fa fa-search"></i></div>
         <div class="clearfix"></div>
     </div>

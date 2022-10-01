@@ -107,7 +107,7 @@ if ($page == ""){
                                             </div>
                                             <img class="film-poster-img lazyload"
                                                 data-src="<?=$subCat['imgUrl']?>"
-                                                src="<?=$webUrl?>/files/images/no_poster.jpg"
+                                                src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
                                                 alt="<?=$subCat['animeTitle']?>">
                                             <a class="film-poster-ahref"
                                                 href="/anime/<?=$subCat['animeId']?>"

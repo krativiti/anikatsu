@@ -82,35 +82,45 @@ if ($page == ""){
                                 <div class="film_list-wrap">
 
                                 <?php 
-                                $json = file_get_contents("$consumetAPI/anime/gogoanime/$keyword?$page=1");
+                                $json = file_get_contents("$apiLink/search/$keyword/$page");
                                 $json = json_decode($json, true);
-                                foreach($json['results'] as $key => $search) { ?>
+                                foreach($json as $key => $search) { ?>
                                     <div class="flw-item">
                                         <div class="film-poster">
                                             <div class="tick ltr">
-                                                <div class="tick-item-<?=$search['subOrDub'];?> tick-eps amp-algn"><?=strtoupper($search['subOrDub']);?></div>
+                                                <div class="tick-item-<?php $str = $search['name'];
+                                                  $last_word_start = strrpos ( $str , " ") + 1;
+                                                  $last_word_end = strlen($str) - 1;
+                                                  $last_word = substr($str, $last_word_start, $last_word_end);
+                                                  if ($last_word == "(Dub)"){echo "dub";} else {echo "sub";}
+                                                ?>   tick-eps amp-algn"><?php $str = $search['name'];
+                                                $last_word_start = strrpos ( $str , " ") + 1;
+                                                $last_word_end = strlen($str) - 1;
+                                                $last_word = substr($str, $last_word_start, $last_word_end);
+                                                if ($last_word == "(Dub)"){echo "Dub";} else {echo "Sub";}
+                                              ?></div>
                                             </div>
                                             <div class="tick rtl">
                                             </div>
                                             <img class="film-poster-img lazyload"
-                                                data-src="<?=$search['image']?>"
-                                                src="<?=$webUrl?>/files/images/no_poster.jpg"
-                                                alt="<?=$search['title']?>">
+                                                data-src="<?=$search['img_url']?>"
+                                                src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
+                                                alt="<?=$search['name']?>">
                                             <a class="film-poster-ahref"
-                                                href="/anime/<?=$search['id']?>"
-                                                title="<?=$search['title']?>"
-                                                data-jname="<?=$search['title']?>"><i class="fas fa-play"></i></a>
+                                                href="/anime/<?=$search['anime_id']?>"
+                                                title="<?=$search['name']?>"
+                                                data-jname="<?=$search['name']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
-                                                    href="/anime/<?=$search['id']?>"
-                                                    title="<?=$search['title']?>"
-                                                    data-jname="<?=$search['title']?>"><?=$search['title']?></a>
+                                                    href="/anime/<?=$search['anime_id']?>"
+                                                    title="<?=$search['name']?>"
+                                                    data-jname="<?=$search['name']?>"><?=$search['name']?></a>
                                             </h3>
                                             <div class="description"></div>
                                             <div class="fd-infor">
-                                                <span class="fdi-item"><?=$search['releaseDate']?></span>
+                                                <span class="fdi-item"><?=$search['status']?></span>
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
