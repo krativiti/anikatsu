@@ -96,14 +96,14 @@ if ($page == ""){
                                                 src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
                                                 alt="<?=$subbed['name']?>">
                                             <a class="film-poster-ahref"
-                                                href="/anime/<?=$subbed['animeId']?>"
+                                                href="/watch/<?=$subbed['animeId']?>"
                                                 title="<?=$subbed['name']?>"
                                                 data-jname="<?=$subbed['name']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
-                                                    href="/anime/<?=$subbed['animeId']?>"
+                                                    href="/watch/<?=$subbed['animeId']?>"
                                                     title="<?=$subbed['name']?>"
                                                     data-jname="<?=$subbed['name']?>"><?=$subbed['name']?></a>
                                             </h3>

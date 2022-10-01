@@ -96,14 +96,14 @@ if ($page == ""){
                                                 src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
                                                 alt="<?=$dubbed['name']?>">
                                             <a class="film-poster-ahref"
-                                                href="/anime/<?=$dubbed['animeId']?>"
+                                                href="/watch/<?=$dubbed['animeId']?>"
                                                 title="<?=$dubbed['name']?>"
                                                 data-jname="<?=$dubbed['name']?>"><i class="fas fa-play"></i></a>
                                         </div>
                                         <div class="film-detail">
                                             <h3 class="film-name">
                                                 <a
-                                                    href="/anime/<?=$dubbed['animeId']?>"
+                                                    href="/watch/<?=$dubbed['animeId']?>"
                                                     title="<?=$dubbed['name']?>"
                                                     data-jname="<?=$dubbed['name']?>"><?=$dubbed['name']?></a>
                                             </h3>
