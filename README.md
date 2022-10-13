@@ -30,7 +30,7 @@
 --> and many moreeee...
 
 ## Features 
-Any Issue?? Join<a href="https://discord.gg/H96GCfBEPz">Discord Server</a>
+Any Issue?? Join <a href="https://discord.gg/H96GCfBEPz">Discord Server</a>
 
 ## Acknowledgements
 
