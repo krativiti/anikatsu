@@ -244,7 +244,7 @@ require('./_config.php');
                                 <div class="d-block">
                                     <a href="<?=$websiteUrl?>/home"
                                         class="btn btn-sm py-2 btn-block btn-radius btn-blank text-white"
-                                        style="background-color: rgba(255,255,255,.1);">Read more</a>
+                                        style="background-color: rgba(255,255,255,.1);">Home</a>
                                 </div>
                             </div>
                         </div>
