@@ -34,12 +34,12 @@ Any Issue?? Join <a href="https://discord.gg/H96GCfBEPz">Discord Server</a>
 
 ## Acknowledgements
 
-./API Folder is Modified Version of [riimuru/gogoanime-api](https://github.com/riimuru/gogoanime-api) according to the need of the website. 
+This website uses Modified Version of [riimuru/gogoanime-api](https://github.com/riimuru/gogoanime-api) 
 
 ## Requirements
 --> **Before running check check if there is an .htaccess file or not in root dir (usually hidden)**
 <br>
---> Php environment (use .htaccess must be enabled in localhost) or Directly Upload the code on php supported hosting (No editing Required Just Upload and Enjoy)
+--> Php environment or Directly Upload the code on php supported hosting (No editing Required Just Upload and Enjoy)
 <br>
 --> **To Update Website Info (Such as Name, Logo, Favicon, Socials) Edit ./_config.php file**
 
