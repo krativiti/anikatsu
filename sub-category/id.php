@@ -1,5 +1,5 @@
 <?php 
-require('../php/info.php'); 
+require('../_config.php'); 
 $parts=parse_url($_SERVER['REQUEST_URI']); 
 $page_url=explode('/', $parts['path']);
 $url = $page_url[count($page_url)-1]  ;
@@ -14,22 +14,22 @@ if ($page == ""){
 <html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title><?=$name?> on AniKatsu</title>
+    <title><?=$name?> on <?=$websiteTitle?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="<?=$name?> on AniKatsu">
+    <meta name="title" content="<?=$name?> on <?=$websiteTitle?>">
     <meta name="description" content="Tv Series in HD with No Ads. Watch anime online">
-    <meta name="keywords" content="AniKatsu, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, AniKatsu, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa">
+    <meta name="keywords" content="<?=$websiteTitle?>, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, <?=$websiteTitle?>, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa">
     <meta name="charset" content="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Content-Language" content="en">
-    <meta property="og:title" content="<?=$name?> on AniKatsu">
-    <meta property="og:description" content="<?=$name?> on AniKatsu in HD with No Ads. Watch anime online">
+    <meta property="og:title" content="<?=$name?> on <?=$websiteTitle?>">
+    <meta property="og:description" content="<?=$name?> on <?=$websiteTitle?> in HD with No Ads. Watch anime online">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AniKatsu">
+    <meta property="og:site_name" content="<?=$websiteTitle?>">
     <meta itemprop="image" content="<?=$banner?>">
     <meta property="og:image" content="<?=$banner?>">
     <meta property="og:image:width" content="650">
@@ -39,7 +39,7 @@ if ($page == ""){
     <meta name="theme-color" content="#202125">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" type="text/css">
-    <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
     <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
     <script type="text/javascript">
@@ -68,7 +68,7 @@ if ($page == ""){
 <body data-page="page_anime">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('../php/include/header.php'); ?>
+        <?php include('../_php/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper">
             <div class="container">
@@ -85,7 +85,7 @@ if ($page == ""){
                                 <div class="film_list-wrap">
 
                                 <?php 
-                                $json = file_get_contents("$apiLink/getSubCategory/$url/$page");
+                                $json = file_get_contents("$api/season/$url?page=$page");
                                 $json = json_decode($json, true);
                                 foreach($json as $key => $subCat) { ?>
                                     <div class="flw-item">
@@ -160,7 +160,7 @@ if ($page == ""){
                                     <nav>
                                         <ul class="ulclear az-list">
                                         <?php 
-                                           $subCatPage = file_get_contents("$apiLink/subCategoryPage/$url/$page");
+                                           $subCatPage = file_get_contents("$api/subCategoryPage?page=$page&subCategory=$url");
                                            $subCatPage = json_decode($subCatPage, true); { ?>
                                              <?=$subCatPage['pagination']; ?>
                                            <?php } ?>
@@ -172,11 +172,11 @@ if ($page == ""){
                     </section>
                     <div class="clearfix"></div>
                 </div>
-                <?php include('../php/include/main-sidenav.php'); ?>
+                <?php include('../_php/sidenav.php'); ?>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('../php/include/footer.html'); ?>
+        <?php include('../_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>

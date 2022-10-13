@@ -1,8 +1,8 @@
 <?php 
-require('../php/info.php');
+require('../_config.php');
 
 $id = $_GET['id']; 
-$json = file_get_contents("$apiLink/vidcdn/$id");
+$json = file_get_contents("$api/vidcdn/watch/$id");
 $video = json_decode($json, true);
 foreach($video as $video)
 ?>

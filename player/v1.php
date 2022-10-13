@@ -1,8 +1,8 @@
 <?php 
-require('../php/info.php');
+require('../_config.php');
 $id = $_GET['id']; 
 $download = $_GET['download']; 
-$json = file_get_contents("$apiLink/vidcdn/$id");
+$json = file_get_contents("$api/vidcdn/watch/$id");
 $json = json_decode($json, true);
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $json = json_decode($json, true);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
-<script src='https://anikatsu.ga/files/js/jwplayer.js'></script>
+<script src='https://<?=$websiteTitle?>.ga/files/js/jwplayer.js'></script>
 <style type="text/css">
         body {background-color: #000;}
     </style>
@@ -26,11 +26,11 @@ $json = json_decode($json, true);
   playerInstance.setup({
              
       sources: <?php echo json_encode($json) ?>,  
-                    autostart: false,  
+                    autostart: true,  
     image: "",
 
-    abouttext: "<?=$webName?>",
-    aboutlink: "<?=$webUrl?>"             
+    abouttext: "<?=$websiteTitle?>",
+    aboutlink: "<?=$websiteUrl?>"             
     });
 
   playerInstance.addButton(

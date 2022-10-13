@@ -7,7 +7,7 @@
                     <div class="anif-block-ul">
                         <ul class="ulclear">
                             <?php 
-                                $json = file_get_contents("$apiLink/getSubCategory/fall-2021-anime/1");
+                                $json = file_get_contents("$api/season/fall-2021-anime");
                                 $json = json_decode($json, true);
                                 foreach(array_slice($json, 0, 5) as $fallAnime) { ?>
                             <li>
@@ -45,7 +45,7 @@
                     <div class="anif-block-ul">
                     <ul class="ulclear">
                             <?php 
-                                $json = file_get_contents("$apiLink/getSubCategory/summer-2021-anime/1");
+                                $json = file_get_contents("$api/season/summer-2021-anime");
                                 $json = json_decode($json, true);
                                 foreach(array_slice($json, 0, 5) as $fallAnime) { ?>
                             <li>
@@ -83,7 +83,7 @@
                     <div class="anif-block-ul">
                     <ul class="ulclear">
                             <?php 
-                                $json = file_get_contents("$apiLink/getSubCategory/spring-2021-anime/1");
+                                $json = file_get_contents("$api/season/spring-2021-anime");
                                 $json = json_decode($json, true);
                                 foreach(array_slice($json, 0, 5) as $fallAnime) { ?>
                             <li>
@@ -123,7 +123,7 @@
                     <div class="anif-block-ul">
                     <ul class="ulclear">
                             <?php 
-                                $json = file_get_contents("$apiLink/getSubCategory/winter-2022-anime/1");
+                                $json = file_get_contents("$api/season/winter-2022-anime");
                                 $json = json_decode($json, true);
                                 foreach(array_slice($json, 0, 5) as $fallAnime) { ?>
                             <li>

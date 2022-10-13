@@ -1,11 +1,11 @@
 <?php 
-require_once('./php/info.php');
+require_once('./_config.php');
 $parts=parse_url($_SERVER['REQUEST_URI']); 
 $page_url=explode('/', $parts['path']);
 $url = $page_url[count($page_url)-1];
 //$url = "naruto";
 
-$getAnime = file_get_contents("$apiLink/getAnime/$url");
+$getAnime = file_get_contents("$api/getAnime/$url");
 $getAnime = json_decode($getAnime, true);
 $episodelist = $getAnime['episode_id'];
 ?>
@@ -13,36 +13,37 @@ $episodelist = $getAnime['episode_id'];
 <html prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <title>Watch <?=$getAnime['name']?> - AniKatsu</title>
+    <title>Watch <?=$getAnime['name']?> - <?=$websiteTitle?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="Watch <?=$getAnime['name']?> - AniKatsu" />
-    <meta name="description" content="<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On AniKatsu" />
-    <meta name="keywords" content="AniKatsu, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, AniKatsu, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa" />
+    <meta name="title" content="Watch <?=$getAnime['name']?> - <?=$websiteTitle?>" />
+    <meta name="description" content="<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On <?=$websiteTitle?>" />
+    <meta name="keywords" content="<?=$websiteTitle?>, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, <?=$websiteTitle?>, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa" />
     <meta name="charset" content="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Language" content="en" />
-    <meta property="og:title" content="Watch <?=$getAnime['name']?> - AniKatsu">
-    <meta property="og:description" content="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On AniKatsu.">
+    <meta property="og:title" content="Watch <?=$getAnime['name']?> - <?=$websiteTitle?>">
+    <meta property="og:description" content="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On <?=$websiteTitle?>.">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AniKatsu">
-    <meta property="og:url" content="<?=$webUrl?>/anime/<?=$url?>">
+    <meta property="og:site_name" content="<?=$websiteTitle?>">
+    <meta property="og:url" content="<?=$websiteUrl?>/anime/<?=$url?>">
     <meta itemprop="image" content="<?=$getAnime['imageUrl']?>">
     <meta property="og:image" content="<?=$getAnime['imageUrl']?>">
     <meta property="og:image:secure_url" content="<?=$getAnime['imageUrl']?>">
     <meta property="og:image:width" content="650">
     <meta property="og:image:height" content="350">
-    <meta property="twitter:title" content="Watch <?=$getAnime['name']?> - AniKatsu">
-    <meta property="twitter:description" ontent="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On AniKatsu.">
-    <meta property="twitter:url" content="<?=$webUrl?>/anime/<?=$url?>">
+    <meta property="twitter:title" content="Watch <?=$getAnime['name']?> - <?=$websiteTitle?>">
+    <meta property="twitter:description" ontent="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On <?=$websiteTitle?>.">
+    <meta property="twitter:url" content="<?=$websiteUrl?>/anime/<?=$url?>">
     <meta property="twitter:card" content="summary">
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
-    <link rel="shortcut icon" href="<?=$webUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
     <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>
     <script type="text/javascript">
         setTimeout(function () {
             var wpse326013 = document.createElement('link');
@@ -63,13 +64,12 @@ $episodelist = $getAnime['episode_id'];
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
     </noscript>
-    <script></script>
 </head>
 
 <body data-page="movie_info">
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
-        <?php include('./php/include/header.php'); ?>
+        <?php include('./_php/header.php'); ?>
         <div class="clearfix"></div>
         <div id="main-wrapper" date-page="movie_info" data-id="<?=$url?>">
             <div id="ani_detail">
@@ -132,14 +132,23 @@ $episodelist = $getAnime['episode_id'];
                                 <div class="film-buttons">
                                     <a href="/watch/<?php foreach(array_slice($episodelist, 0, 1) as $episode1) {?><?=$episode1['episodeId']?><?php } ?>" class="btn btn-radius btn-primary btn-play"><i
                                             class="fas fa-play mr-2"></i>Watch now</a>
-                                    <div class="dr-fav" id="watch-list-content">
-                                    </div>
                                 </div>
                                 <?php } ?>
                                 <div class="film-description m-hide">
                                     <div class="text"><?=$getAnime['synopsis']?></div>
                                 </div>
-                                <div class="film-text m-hide">AniKatsu is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality</div>
+                                <div class="film-text m-hide"><?=$websiteTitle?> is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality</div>
+                                <div class="share-buttons share-buttons-min mt-3">
+                                <div class="share-buttons-block" style="padding-bottom: 0 !important;">
+                                    <div class="share-icon"></div>
+                                    <div class="sbb-title">
+                                        <span>Share Anime</span>
+                                        <p class="mb-0">to your friends</p>
+                                    </div>
+                                    <div class="addthis_inline_share_toolbox"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
                             </div>
                             <div class="anisc-info-wrap">
                                 <div class="anisc-info">
@@ -174,9 +183,9 @@ $episodelist = $getAnime['episode_id'];
                                         <span class="item-head">Status:</span> <a href="<?php if ($getAnime['status'] == "Completed") {echo "/status/completed";} else {echo "/status/ongoing";}?>"><?=$getAnime['status']?></a>
                                     </div>
                                     <div class="item item-list">
-                                        <span class="item-head">Genres:</span> <?php foreach($getAnime['genres'] as $genre) { ?><a><?=$genre?></a><?php } ?>
+                                        <span class="item-head">Genres:</span> <?php foreach($getAnime['genres'] as $genre) { ?><a href="<?=$websiteUrl?>/genre/<?php $genreUrl = strtolower($genre); echo str_replace(" ","+", $genreUrl);?>"><?=$genre?></a><?php } ?>
                                     </div>
-                                    <div class="film-text w-hide">AniKatsu is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality</div>
+                                    <div class="film-text w-hide"><?=$websiteTitle?> is a site to watch online anime like <strong><?=$getAnime['name']?></strong> online, or you can even watch <strong><?=$getAnime['name']?></strong> in HD quality</div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
@@ -195,30 +204,18 @@ $episodelist = $getAnime['episode_id'];
                             <div class="clearfix"></div>
                         </div>
                         <div class="tab-content">
-                            <div class="show-comments">
-                                <div id="disqus_thread"></div>
-                                      <script>
-                                          (function() { // DON'T EDIT BELOW THIS LINE
-                                          var d = document, s = d.createElement('script');
-                                          s.src = 'https://anikatsu-1.disqus.com/embed.js';
-                                          s.setAttribute('data-timestamp', +new Date());
-                                          (d.head || d.body).appendChild(s);
-                                          })();
-                                      </script>
-                                      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                                      <script id="dsq-count-scr" src="//anikatsu-1.disqus.com/count.js" async></script>  
-                            </div>
+                          <?php include('./_php/disqus.php'); ?>
                         </div>
                     </section>
 
-                    <?php include('./php/include/recentReleases.php'); ?>
+                    <?php include('./_php/recent-releases.php'); ?>
                     <div class="clearfix"></div>
                 </div>
-                <?php include('./php/include/main-sidenav.php'); ?>
+                <?php include('./_php/sidenav.php'); ?>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <?php include('./php/include/footer.html'); ?>
+        <?php include('./_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>
@@ -229,35 +226,7 @@ $episodelist = $getAnime['episode_id'];
         <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/movie.js"></script>
         <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="/files/js/function.js"></script>
-        <script>
-            $(document).ready(function ($) {
-                $(".button").click(function (e) {
-                    e.preventDefault();
-                    const user_id = $(this).attr('data-user'); // Get the parameter user_id from the button
-                    const name = $(this).attr('data-post'); // Get the parameter name from the button
-                    const method = $(this).attr('method'); // Get the parameter method from the button
-                    if (method === "Add") {
-                        $(this).attr('method', 'Remove'); // Change the div method attribute to Remove
-                        $(this).html('<a class="button"> &nbsp;<i class="fas fa-minus mr-2"></i>&nbsp;Remove from List&nbsp;</a>').toggleClass('button mybtn'); // Replace the image with the liked button
-                    } else {
-                        $(this).attr('method', 'Add');
-                        $(this).html('<a class="button"> &nbsp;<i class="fas fa-plus mr-2"></i>&nbsp;Add to List&nbsp;</a>').toggleClass('mybtn button');
-                    }
-                    $.ajax({
-                        url: '/theme/6anime/pages/ajax.watchlist.php', // Call favs.php to update the database
-                        type: 'GET',
-                        data: { user_id: user_id, name: name, method: method },
-                        cache: false,
-                        success: function (data) {
-                        }
-                    });
-                });
-            });
-        </script>
-
-        <div style="display:none;">
-        </div>
+        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>
     </div>
 </body>
 

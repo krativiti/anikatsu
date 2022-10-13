@@ -128,9 +128,9 @@
 <div id="header" class="header-home ">
     <div class="container">
         <div id="mobile_menu"><i class="fa fa-bars"></i></div>
-        <a href="/" id="logo" title="<?=$webName?>">
-            <img src="<?=$webLogo?>" width="100%" height="auto"
-                alt="<?=$webName?>">
+        <a href="<?=$websiteUrl?>/home" id="logo" title="<?=$websiteTitle?>">
+            <img src="<?=$websiteLogo?>" width="100%" height="auto"
+                alt="<?=$websiteTitle?>">
             <div class="clearfix"></div>
         </a>
         <div id="search">
@@ -144,9 +144,9 @@
         </div>
         <div class="header-group">
             <div class="zoro-group">
-                <div class="zrg-title"><span class="top">Join now</span><span class="bottom"><?=$webName?> Groups</span></div>
+                <div class="zrg-title"><span class="top">Join now</span><span class="bottom"><?=$websiteTitle?> Groups</span></div>
                 <div class="zrg-list">
-                    <div class="item"><a target="_blank" href="<?=$donate?>" class="zr-social-button tl-btn"><i
+                    <div class="item"><a target="_blank" href="<?=$websiteUrl?>/donate" class="zr-social-button tl-btn"><i
                                 class="fas fa-donate"></i></a></div>
                     <div class="item"><a href="<?=$telegram?>" target="_blank" class="zr-social-button dc-btn"><i
                                 class="fab fa-telegram"></i></a></div>
@@ -160,17 +160,21 @@
         </div>
         <div class="header-setting">
             <div class="hs-toggles">
-                <a href="/anime" class="hst-item" data-toggle="tooltip" data-original-title="Select Anime List">
+                <a href="<?=$websiteUrl?>/anime" class="hst-item" data-toggle="tooltip" data-original-title="Select Anime List">
                     <div class="hst-icon"><i class="fas fa-list"></i></div>
                     <div class="name"><span>Anime</span></div>
                 </a>
-                <a href="/popular" class="hst-item" data-toggle="tooltip" data-original-title="Popular Anime List">
+                <a href="<?=$websiteUrl?>/popular" class="hst-item" data-toggle="tooltip" data-original-title="Popular Anime List">
                     <div class="hst-icon"><i class="fas fa-star"></i></div>
                     <div class="name"><span>Popular</span></div>
                 </a>
-                <a href="/type/movies" class="hst-item" data-toggle="tooltip" data-original-title="Select Random Anime">
+                <a href="<?=$websiteUrl?>/type/movies" class="hst-item" data-toggle="tooltip" data-original-title="Anime Movies">
                     <div class="hst-icon"><i class="fas fa-film"></i></div>
                     <div class="name"><span>Movie</span></div>
+                </a>
+                <a href="<?=$websiteUrl?>/anilist/random" class="hst-item" data-toggle="tooltip" data-original-title="Select Random Anime">
+                    <div class="hst-icon"><i class="fas fa-random"></i></div>
+                    <div class="name"><span>Random</span></div>
                 </a>
                 <div class="hst-item twitter_bt" data-toggle="tooltip" title=""
                     data-original-title="Follow us on Twitter">
@@ -213,14 +217,14 @@
                 </ul>
             </div>
         </div>
-        <div id="header_right">
+       <!--- <div id="header_right">
             <div id="user-slot">
                 <div class="header_right-user">
-                    <!--<a href="#" class="btn-user btn btn-sm btn-primary btn-login"><i
-                            class="fas fa-user"></i></a>--->
+                    <a href="#" class="btn-user btn btn-sm btn-primary btn-login"><i
+                            class="fas fa-book"></i> Manga</a>
                 </div>
             </div>
-        </div>
+        </div> --->
         <div id="mobile_search" class=""><i class="fa fa-search"></i></div>
         <div class="clearfix"></div>
     </div>
