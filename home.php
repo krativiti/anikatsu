@@ -90,24 +90,26 @@ require('./_config.php');
                                 <div class="swiper-wrapper">
 
                                 <?php 
-                                $json = file_get_contents("$api/popular");
+                                $json = file_get_contents("https://api.consumet.org/meta/anilist/popular");
                                 $json = json_decode($json, true);
-                                foreach($json as $key => $popular) { ?>
+                                foreach($json['results'] as $key => $popular) { ?>
+                                <?php $title = $popular['title']; { ?>
                                     <div class="swiper-slide">
                                         <div class="item">
                                             <div class="number">
                                                 <span><?=$key+1?></span>
-                                                <div class="film-title dynamic-name" data-jname="<?=$popular['animeTitle']?>"><?=$popular['animeTitle']?></div>
+                                                <div class="film-title dynamic-name" data-jname="<?=$title['romaji']?>"><?=$title['romaji']?></div>
                                             </div>
-                                            <a href="/anime/<?=$popular['animeId']?>" class="film-poster"
-                                                title="<?=$popular['animeTitle']?>">
-                                                <img data-src="<?=$popular['imgUrl']?>"
-                                                    src="<?=$popular['imgUrl']?>"
-                                                    class="film-poster-img lazyload" alt="<?=$popular['animeTitle']?>">
+                                            <a href="<?=$websiteUrl?>/anilist/anime?id=<?=$popular['id']?>" class="film-poster"
+                                                title="<?=$title['romaji']?>">
+                                                <img data-src="<?=$popular['image']?>"
+                                                    src="<?=$popular['image']?>"
+                                                    class="film-poster-img lazyload" alt="<?=$title['romaji']?>">
                                             </a>
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
+                                    <?php } ?>
                                 <?php } ?>
                                 
 
