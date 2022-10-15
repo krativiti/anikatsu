@@ -83,8 +83,8 @@ if ($page == ""){
 
                                 <?php 
                                 $json = file_get_contents("$api/search?keyw=$keyword&page=$page");
-                                $json = json_decode($json, true);
-                                foreach($json as $key => $search) { ?>
+                                $results = json_decode($json, true);
+                                foreach($results as $key => $search) { ?>
                                     <div class="flw-item">
                                         <div class="film-poster">
                                             <div class="tick ltr">
@@ -125,34 +125,35 @@ if ($page == ""){
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
+                                    
                                 <?php } ?>
                                     
-
+                                <?php 
+                                $json = file_get_contents("$api/search?keyw=$keyword");
+                                $json = json_decode($json, true);
+                                if (count($json) == 0){ ?>
+                                    
+                                    <div class="tab-content">
+                                        <style>
+                                            .marginLeft{
+                                                margin-left:10px;
+                                            }
+                                            @media screen and (max-width: 576px) {
+                                                
+                                                .marginLeft{
+                                                margin-left:40px;
+                                            }
+                                            }
+                                        </style>
+                                        <div class="block_area-content block_area-list film_list film_list-grid film_list-wfeature">
+                                            <div class="marginLeft">
+                                                No result for <?=$keyword?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 </div>
                                 <div class="clearfix"></div>
-                                <style>
-                                    .cus_pagi {
-                                        margin-top: 7px;
-                                    }
-
-                                    div.cus_pagi input {
-                                        background: #575757;
-                                        color: #fff;
-                                        border: 0;
-                                        width: 56px;
-                                        text-align: center;
-                                        border-radius: 2px;
-                                        height: 28px;
-                                        outline: 0;
-                                    }
-
-                                    button.btn.btn-xs.btn-primary {
-                                        padding: 7px 11px;
-                                        height: 26px;
-                                        margin-top: 12px;
-                                        border-radius: 2px;
-                                    }
-                                </style>
                                 <div class="pagination">
                                     <nav>
                                         <ul class="ulclear az-list">

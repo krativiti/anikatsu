@@ -96,10 +96,6 @@ require('./_config.php');
                                 <a href="<?=$websiteUrl?>/search?keyword=Jujutsu%20Kaisen%20(TV)" class="item">Jujutsu
                                     Kaisen (TV)</a>
 
-                                <a href="<?=$websiteUrl?>/search?keyword=Spy%20x%20Family%2C%20Part%202"
-                                    class="item">Spy x Family, Part
-                                    2</a>
-
                                 <a href="<?=$websiteUrl?>/search?keyword=The%20Eminence%20in%20Shadow" class="item">The
                                     Eminence in
                                     Shadow</a>
