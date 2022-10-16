@@ -7,7 +7,7 @@ $url = $page_url[count($page_url)-1];
 $getEpisode = file_get_contents("$api/getEpisode/$url");
 $getEpisode = json_decode($getEpisode, true);
 $anime = $getEpisode['anime_info'];
-$download = str_replace("Gogoanime", "<?=$websiteTitle?>", $getEpisode['ep_download']);
+$download = str_replace("Gogoanime", "$websiteTitle", $getEpisode['ep_download']);
 
 $getAnime = file_get_contents("$api/getAnime/$anime");
 $getAnime = json_decode($getAnime, true);
