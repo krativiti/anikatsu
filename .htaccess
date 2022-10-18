@@ -10,4 +10,13 @@ RewriteRule ^sub-category/([a-zA-Z0-9-=_]+) sub-category/id.php
 RewriteRule ^genre/([a-zA-Z0-9-=_]+) genre/id.php
 RewriteRule ^az-list/([A-Z]) az-list/id.php
 
+
+RewriteRule ^sitemaps/recentCN-sitemap.xml sitemaps/recentCN-sitemap.php
+RewriteRule ^sitemaps/recentDUB-sitemap.xml sitemaps/recentDUB-sitemap.php
+RewriteRule ^sitemaps/recentSUB-sitemap.xml sitemaps/recentSUB-sitemap.php
+RewriteRule ^sitemaps/ongoing-sitemap.xml sitemaps/ongoing-sitemap.php
+RewriteRule ^sitemaps/allanime-sitemap.xml sitemaps/allanime-sitemap.php
+RewriteRule ^sitemaps/sitemap.xml sitemaps/sitemap.php
+RewriteRule ^sitemap.xml sitemap.php
+
 ErrorDocument 404 /404.php
