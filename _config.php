@@ -21,7 +21,7 @@ $disqus = "https://random-co6vnxqche.disqus.com"; // Disqus
 
 
 // API URL
-$api = "https://api.anikatsu.ga"; // Github - https://github.com/shashankktiwariii/anikatsu-api
+$api = "https://266f7b13-4867-4ef5-bd86-b25dc799681b.id.repl.co"; // https://replit.com/@shashankktiwari/anikatsu
 
 
 $banner = $websiteUrl . "/files/images/banner.png";  //Banner
