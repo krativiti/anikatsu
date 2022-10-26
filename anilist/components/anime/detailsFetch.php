@@ -8,7 +8,7 @@
                         <div class="anis-content">
                             <div class="anisc-poster">
                                 <div class="film-poster">
-                                    <img src="https://cdn-eq4.pages.dev/anikatsu/files/images/no_poster.jpg"
+                                    <img src="<?=$websiteUrl?>/files/images/no_poster.jpg"
                                         data-src="<?=$getAnime['image']?>"
                                         class="lazyload film-poster-img">
                                 </div>

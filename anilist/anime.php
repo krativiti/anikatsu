@@ -38,8 +38,8 @@ $episodelist = $getAnime['episodes'];
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
     <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/style.css">
-    <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/min.css">
+    <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css">
+    <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>
     <script type="text/javascript">
         setTimeout(function () {
@@ -96,15 +96,15 @@ $episodelist = $getAnime['episodes'];
         <?php include('../_php/footer.php'); ?>
         <div id="mask-overlay"></div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/video.js"></script>
+        
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
-        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/app.js"></script>
-        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/comman.js"></script>
-        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/movie.js"></script>
-        <link rel="stylesheet" href="https://cdn-eq4.pages.dev/anikatsu/files/css/jquery-ui.css">
+        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/app.js"></script>
+        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/comman.js"></script>
+        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/movie.js"></script>
+        <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/jquery-ui.css">
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="https://cdn-eq4.pages.dev/anikatsu/files/js/function.js"></script>
+        <script type="text/javascript" src="<?=$websiteUrl?>/files/js/function.js"></script>
 
         <div style="display:none;">
         </div>
