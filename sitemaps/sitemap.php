@@ -11,6 +11,11 @@ echo "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>"."\n";  ?>
 <priority>1.0000</priority>
 </url>
 <url>
+<loc>https://<?=$_SERVER['SERVER_NAME']?>/home</loc>
+<changefreq>daily</changefreq>
+<priority>1.0000</priority>
+</url>
+<url>
 <loc>https://<?=$_SERVER['SERVER_NAME']?>/anime</loc>
 <changefreq>daily</changefreq>
 <priority>0.8000</priority>

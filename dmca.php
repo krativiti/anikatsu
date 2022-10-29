@@ -4,6 +4,7 @@
 
 <head>
     <title>DMCA - <?=$websiteTitle?></title>
+    <script async src="https://arc.io/widget.min.js#VtsaVyfg"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="index,follow" />
     <meta http-equiv="content-language" content="en" />
@@ -19,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
     <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=$websiteUrl?>/favicon.ico" />
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css">
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css">
     <script type="text/javascript">

@@ -19,10 +19,11 @@ $episodelist = $getAnime['episode_id'];
 
 <head>
     <title>Watch <?=$getEpisode['animeNameWithEP']?>on <?=$websiteTitle?></title>
+    <script async src="https://arc.io/widget.min.js#VtsaVyfg"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="title" content="Watch <?=$getEpisode['animeNameWithEP']?>on <?=$websiteTitle?>">
     <meta name="description" content="<?=substr($getAnime['synopsis'],0, 150)?> ... at <?=$websiteUrl?>">
-    <meta name="keywords" content="<?=$websiteTitle?>, <?=$getEpisode['animeNameWithEP']?>,<?=$getAnime['name']?>, watch anime online, free anime, anime stream, anime hd, english sub">
+    <meta name="keywords" content="<?=$websiteTitle?>, <?=$getEpisode['animeNameWithEP']?>,<?=$getAnime['othername']?><?=$getAnime['name']?>, watch anime online, free anime, anime stream, anime hd, english sub">
     <meta name="charset" content="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta name="robots" content="index, follow">
@@ -46,6 +47,7 @@ $episodelist = $getAnime['episode_id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" type="text/css">
     <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=$websiteUrl?>/favicon.ico" />
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css">
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css">
 </head>

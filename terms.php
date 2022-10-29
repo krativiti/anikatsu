@@ -4,6 +4,7 @@
 
 <head>
     <title>Watch Anime Online, Free Anime Streaming Online on <?=$websiteTitle?> Anime Website</title>
+    <script async src="https://arc.io/widget.min.js#VtsaVyfg"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="index,follow" />
     <meta http-equiv="content-language" content="en" />
@@ -18,6 +19,7 @@
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
     <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=$websiteUrl?>/favicon.ico" />
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css">
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>

@@ -6,6 +6,7 @@ require('./_config.php');
 
 <head>
     <title><?=$websiteTitle?> - Official <?=$websiteTitle?> #1 Watch High Quality Anime Online Without Ads</title>
+    <script async src="https://arc.io/widget.min.js#VtsaVyfg"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="title" content="<?=$websiteTitle?> - Official <?=$websiteTitle?> #1 Watch High Quality Anime Online Without Ads" />
     <meta name="description" content="<?=$websiteTitle?> - Official <?=$websiteTitle?> #1 Watch High Quality Anime Online Without Ads. You can watch anime online free in HD without Ads. Best place for free find and one-click anime." />
@@ -29,8 +30,11 @@ require('./_config.php');
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
     <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=$websiteUrl?>/favicon.ico" />
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css">
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sakana-widget@2.3.2/lib/sakana.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sakana-widget/2.3.2/sakana.min.js"></script>
     <script type="text/javascript">
         setTimeout(function () {
             var wpse326013 = document.createElement('link');
@@ -54,6 +58,36 @@ require('./_config.php');
 </head>
 
 <body data-page="page_home">
+<!---<style>
+    .sakanaWidget{
+        position: fixed;
+  left: 0;
+  bottom: 0;
+  transform-origin: 100% 100%;
+  z-index: 1000;
+    }
+    @media only screen and (max-width: 700px) {
+        .sakanaWidget{
+            display:none;
+        }
+}
+</style>
+<body>
+    <div class="sakanaWidget"><div id="sakana-widget"></div></div>
+    
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget().mount('#sakana-widget');
+    new SakanaWidget().setState({ i: 0.01, d: 1 }).mount('#sakana-widget');
+
+
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://anikatsu.me/files/js/sakuna.js"
+></script> --->
     <div id="sidebar_menu_bg"></div>
     <div id="wrapper" data-page="page_home">
         <?php include('./_php/header.php');?>

@@ -14,17 +14,18 @@ $episodelist = $getAnime['episode_id'];
 
 <head>
     <title>Watch <?=$getAnime['name']?> - <?=$websiteTitle?></title>
+    <script async src="https://arc.io/widget.min.js#VtsaVyfg"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="title" content="Watch <?=$getAnime['name']?> - <?=$websiteTitle?>" />
-    <meta name="description" content="<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On <?=$websiteTitle?>" />
-    <meta name="keywords" content="<?=$websiteTitle?>, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, <?=$websiteTitle?>, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa" />
+    <meta name="description" content="<?=substr($getAnime['synopsis'],0, 150)?>.... Read More On <?=$websiteTitle?>" />
+    <meta name="keywords" content="<?=$getAnime['name']?>, <?=$getAnime['othername']?>, <?=$websiteTitle?>, watch anime online, free anime, anime stream, anime hd, english sub, kissanime, gogoanime, animeultima, 9anime, 123animes, <?=$websiteTitle?>, vidstreaming, gogo-stream, animekisa, zoro.to, gogoanime.run, animefrenzy, animekisa" />
     <meta name="charset" content="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta name="robots" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta http-equiv="Content-Language" content="en" />
     <meta property="og:title" content="Watch <?=$getAnime['name']?> - <?=$websiteTitle?>">
-    <meta property="og:description" content="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On <?=$websiteTitle?>.">
+    <meta property="og:description" content="W<?=substr($getAnime['synopsis'],0, 150)?>.... Read More On <?=$websiteTitle?>.">
     <meta property="og:locale" content="en_US">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="<?=$websiteTitle?>">
@@ -35,12 +36,13 @@ $episodelist = $getAnime['episode_id'];
     <meta property="og:image:width" content="650">
     <meta property="og:image:height" content="350">
     <meta property="twitter:title" content="Watch <?=$getAnime['name']?> - <?=$websiteTitle?>">
-    <meta property="twitter:description" ontent="W<?=substr($getAnime['synopsis'],0, 90)?>.... Read More On <?=$websiteTitle?>.">
+    <meta property="twitter:description" ontent="W<?=substr($getAnime['synopsis'],0, 150)?>.... Read More On <?=$websiteTitle?>.">
     <meta property="twitter:url" content="<?=$websiteUrl?>/anime/<?=$url?>">
     <meta property="twitter:card" content="summary">
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
     <meta name="theme-color" content="#202125">
     <link rel="shortcut icon" href="<?=$websiteUrl?>/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="<?=$websiteUrl?>/favicon.ico" />
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/style.css">
     <link rel="stylesheet" href="<?=$websiteUrl?>/files/css/min.css">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63430163bc99824a"></script>
@@ -194,6 +196,7 @@ $episodelist = $getAnime['episode_id'];
                     </div>
                 </div>
             </div>
+            <?php include('./_php/ads/728x90.html')?>
             <div class="container">
                 <div id="main-content">
                     <section class="block_area block_area-comment">

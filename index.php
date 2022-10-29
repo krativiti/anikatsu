@@ -6,6 +6,7 @@ require('./_config.php');
 
 <head>
     <title><?=$websiteTitle?> - Official <?=$websiteTitle?> Watch High Quality Anime Online Without Ads</title>
+    <script async src="https://arc.io/widget.min.js#VtsaVyfg"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="robots" content="index,follow" />
     <meta http-equiv="content-language" content="en" />
@@ -17,7 +18,7 @@ require('./_config.php');
     <meta property="og:url" content="<?=$websiteUrl?>" />
     <meta property="og:title" content="<?=$websiteTitle?> - Official <?=$websiteTitle?> Watch High Quality Anime Online Without Ads" />
     <meta property="og:image" content="<?=$banner?>" />
-    <meta property="og:description "
+    <meta property="og:description"
         content="<?=$websiteTitle?> - Official <?=$websiteTitle?> #1 Watch High Quality Anime Online Without Ads. You can watch anime online free in HD without Ads. Best place for free find and one-click anime." />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta name="apple-mobile-web-app-status-bar" content="#202125">
@@ -29,7 +30,37 @@ require('./_config.php');
 </head>
 
 <body>
-    <div id="xwrapper">
+    <div id="wrapper">
+   <!---- <style>
+    .sakanaWidget{
+        position: fixed;
+  right: 0;
+  bottom: 0;
+  transform-origin: 100% 100%;
+  z-index: 1000;
+    }
+    @media only screen and (max-width: 700px) {
+        .sakanaWidget{
+            display:none;
+        }
+}
+</style>
+<body>
+    <div class="sakanaWidget"><div id="sakana-widget"></div></div>
+    
+<script>
+  function initSakanaWidget() {
+    new SakanaWidget().mount('#sakana-widget');
+    new SakanaWidget().setState({ i: 0.01, d: 1 }).mount('#sakana-widget');
+
+
+  }
+</script>
+<script
+  async
+  onload="initSakanaWidget()"
+  src="https://anikatsu.me/files/js/sakuna.js"
+></script> ---->
         <!--Begin: Header-->
         <div id="xheader">
             <div class="container">
@@ -113,6 +144,7 @@ require('./_config.php');
                     </div>
                 </div>
             </div>
+            
             <div class="mw-body">
                 <div class="container">
                     <div id="action-button">
@@ -133,6 +165,7 @@ require('./_config.php');
                         <div class="clearfix"></div>
                     </div>
                 </div>
+                <?php include('./_php/ads/728x90.html')?>
                     <div class="mwb-2col">
                         <div class="mwb-left">
                             <h1 class="mw-heading"><?=$websiteTitle?> - The best site to watch anime online for Free</h1>
