@@ -1,16 +1,16 @@
 <?php 
 
-$websiteTitle = "AniKatsu"; // Website Name
+$websiteTitle = "Otakustv"; // Website Name
 $websiteUrl = "//{$_SERVER['SERVER_NAME']}";  // Website URL
 $websiteLogo = "/files/images/logo.png"; // Logo
 $contactEmail = "xyz@gmail.com"; // Contact Email
 
 
 //Donate 
-$donate = "https://www.buymeacoffee.com/shashankk";
+$donate = "https://www.buymeacoffee.com/otakustv";
 
 // Socials 
-$telegram = "https://t.me/anikatsu"; // telegram
+$telegram = "https://t.me/#"; // telegram
 $discord = "https://discord.com/invite/FrWnWRrZmk"; // Discord
 $redit = "#"; // Reddit
 $twitter = "#"; // Twitter
