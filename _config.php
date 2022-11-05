@@ -2,7 +2,7 @@
 
 $websiteTitle = "Otakustv"; // Website Name
 $websiteUrl = "//{$_SERVER['SERVER_NAME']}";  // Website URL
-$websiteLogo = "/files/images/logo.png"; // Logo
+$websiteLogo = "https://links.todaytvseries.one/wp-content/uploads/2022/10/logo-new.png"; // Logo
 $contactEmail = "xyz@gmail.com"; // Contact Email
 
 
